@@ -1,6 +1,6 @@
 {
   "name": "wp-js-plugin-starter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Just another WordPress plugin starter",
   "main": "src/index.js",
   "private": true,

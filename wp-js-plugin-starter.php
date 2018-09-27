@@ -3,7 +3,7 @@
  * Plugin Name: WP JS Plugin Starter
  * Plugin URI: https://github.com/youknowriad/wp-js-plugin-starter
  * Description: Just another WordPress plugin starter
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Riad Benguella
  *
  * @package wp-js-plugin-starter
@@ -23,33 +23,28 @@ function wp_js_plugin_starter_url( $path ) {
 }
 
 /**
- * Registers the plugin's script.
+ * Registers the plugin's block.
  *
  * @since 1.0.0
  */
-function wp_js_plugin_starter_register_script() {
+function wp_js_plugin_starter_register_block() {
+	if ( ! function_exists( 'register_block_type' ) ) {
+		return;
+	}
+
 	wp_register_script(
 		'wp-js-plugin-starter',
 		wp_js_plugin_starter_url( 'dist/index.js' ),
-		array( 'wp-element' )
+		array( 'wp-blocks', 'wp-element' ),
+		'1.0.1'
 	);
+
+	register_block_type( 'wp-js-plugin-starter/hello-world', array(
+		'editor_script' => 'wp-js-plugin-starter',
+	) );
 }
 
 /**
- * Enqueues the plugin's script.
- *
- * @since 1.0.0
+ * Trigger the block registration on init.
  */
-function wp_js_plugin_starter_enqueue_script() {
-	wp_enqueue_script( 'wp-js-plugin-starter' );
-}
-
-/**
- * Trigger the script registration on init.
- */
-add_action( 'init', 'wp_js_plugin_starter_register_script' );
-
-/**
- * Enqueue the script in all admin pages
- */
-add_action( 'admin_enqueue_scripts', 'wp_js_plugin_starter_enqueue_script' );
+add_action( 'init', 'wp_js_plugin_starter_register_block' );
