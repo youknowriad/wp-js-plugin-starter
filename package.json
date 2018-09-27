@@ -1,0 +1,21 @@
+{
+  "name": "wp-js-plugin-starter",
+  "version": "1.0.0",
+  "description": "Just another WordPress plugin starter",
+  "main": "src/index.js",
+  "private": true,
+  "scripts": {
+    "start": "parcel watch src/index.js",
+    "build": "parcel build src/index.js"
+  },
+  "keywords": [
+    "wordpress",
+    "plugin",
+    "javascript"
+  ],
+  "author": "Riad Benguella",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel-bundler": "^1.10.1"
+  }
+}

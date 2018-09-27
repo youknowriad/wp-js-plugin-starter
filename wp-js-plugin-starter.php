@@ -30,7 +30,7 @@ function wp_js_plugin_starter_url( $path ) {
 function wp_js_plugin_starter_register_script() {
 	wp_register_script(
 		'wp-js-plugin-starter',
-		wp_js_plugin_starter_url( 'src/index.js' ),
+		wp_js_plugin_starter_url( 'dist/index.js' ),
 		array()
 	);
 }
