@@ -15,7 +15,7 @@ registerBlockType("wp-js-plugin-starter/hello-world", {
     }
   },
 
-  edit: function({ attributes }) {
+  edit: function({ attributes, setAttributes }) {
     return (
       <div style={{ width: "300px", height: "300px", position: "relative" }}>
         <img
@@ -32,9 +32,15 @@ registerBlockType("wp-js-plugin-starter/hello-world", {
     );
   },
 
-  save: function() {
+  save({ attributes }) {
     return (
-      <img src="http://127.0.0.1:8888/wp-content/plugins/wp-js-plugin-starter/kitty.jpg" />
+      <div style={{ width: "300px", height: "300px", position: "relative" }}>
+        <img
+          style={{ width: "300px", height: "300px" }}
+          src="http://127.0.0.1:8888/wp-content/plugins/wp-js-plugin-starter/kitty.jpg"
+        />
+        <div className="top-text">{attributes.memeTextTop}</div>
+      </div>
     );
   }
 });
