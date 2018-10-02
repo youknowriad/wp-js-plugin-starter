@@ -12,6 +12,11 @@ registerBlockType("wp-js-plugin-starter/hello-world", {
   attributes: {
     memeTextTop: {
       type: "string"
+    },
+    imageUrl: {
+      type: "string",
+      default:
+        "http://127.0.0.1:8888/wp-content/plugins/wp-js-plugin-starter/kitty.jpg"
     }
   },
 
@@ -20,7 +25,7 @@ registerBlockType("wp-js-plugin-starter/hello-world", {
       <div style={{ width: "300px", height: "300px", position: "relative" }}>
         <img
           style={{ width: "300px", height: "300px" }}
-          src="http://127.0.0.1:8888/wp-content/plugins/wp-js-plugin-starter/kitty.jpg"
+          src={attributes.imageUrl}
         />
         <PlainText
           className="top-text"
@@ -37,7 +42,7 @@ registerBlockType("wp-js-plugin-starter/hello-world", {
       <div style={{ width: "300px", height: "300px", position: "relative" }}>
         <img
           style={{ width: "300px", height: "300px" }}
-          src="http://127.0.0.1:8888/wp-content/plugins/wp-js-plugin-starter/kitty.jpg"
+          src={attributes.imageUrl}
         />
         <div className="top-text">{attributes.memeTextTop}</div>
       </div>
