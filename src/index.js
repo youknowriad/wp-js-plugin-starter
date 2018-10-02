@@ -1,8 +1,11 @@
 import "./style.scss";
 
-const { createElement } = wp.element;
+const { createElement, Fragment } = wp.element;
 const { registerBlockType } = wp.blocks;
-const { PlainText } = wp.editor;
+const { BlockControls, PlainText, MediaUpload } = wp.editor;
+const { Toolbar, IconButton } = wp.components;
+
+const ALLOWED_MEDIA_TYPES = ["image"];
 
 registerBlockType("wp-js-plugin-starter/hello-world", {
   title: "Hello World",
@@ -17,23 +20,55 @@ registerBlockType("wp-js-plugin-starter/hello-world", {
       type: "string",
       default:
         "http://127.0.0.1:8888/wp-content/plugins/wp-js-plugin-starter/kitty.jpg"
+    },
+    id: {
+      type: "number"
     }
   },
 
   edit: function({ attributes, setAttributes }) {
+    const onSelectImage = media => {
+      if (!media || !media.url) {
+        setAttributes({ imageUrl: undefined, id: undefined });
+        return;
+      }
+      setAttributes({ imageUrl: media.url, id: media.id });
+    };
+
     return (
-      <div style={{ width: "300px", height: "300px", position: "relative" }}>
-        <img
-          style={{ width: "300px", height: "300px" }}
-          src={attributes.imageUrl}
-        />
-        <PlainText
-          className="top-text"
-          value={attributes.memeTextTop}
-          onChange={memeTextTop => setAttributes({ memeTextTop })}
-          placeholder={"Write something funny..."}
-        />
-      </div>
+      <Fragment>
+        <Fragment>
+          <BlockControls>
+            <Toolbar>
+              <MediaUpload
+                onSelect={onSelectImage}
+                allowedTypes={ALLOWED_MEDIA_TYPES}
+                render={({ open }) => (
+                  <IconButton
+                    className="components-toolbar__control"
+                    value={id}
+                    label={"Edit image"}
+                    icon="edit"
+                    onClick={open}
+                  />
+                )}
+              />
+            </Toolbar>
+          </BlockControls>
+        </Fragment>
+        <div style={{ width: "300px", height: "300px", position: "relative" }}>
+          <img
+            style={{ width: "300px", height: "300px" }}
+            src={attributes.imageUrl}
+          />
+          <PlainText
+            className="top-text"
+            value={attributes.memeTextTop}
+            onChange={memeTextTop => setAttributes({ memeTextTop })}
+            placeholder={"Write something funny..."}
+          />
+        </div>
+      </Fragment>
     );
   },
 

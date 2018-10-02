@@ -31,7 +31,7 @@ function wp_js_plugin_starter_register_block() {
 	wp_register_script(
 		'wp-js-plugin-starter',
 		wp_js_plugin_starter_url( 'dist/index.js' ),
-		array( 'wp-element', 'wp-editor', 'wp-blocks' )
+		array( 'wp-element', 'wp-editor', 'wp-blocks', 'wp-components' )
 	);
 
 	wp_register_style(
