@@ -34,8 +34,14 @@ function wp_js_plugin_starter_register_block() {
 		array( 'wp-element' )
 	);
 
+	wp_register_style(
+		'wp_js_plugin_starter_style',
+		wp_js_plugin_starter_url( 'dist/index.css' )
+	);
+
 	register_block_type( 'wp-js-plugin-starter/hello-world', array(
 			'editor_script' => 'wp-js-plugin-starter',
+			'style' => 'wp_js_plugin_starter_style',
 	) );
 }
 

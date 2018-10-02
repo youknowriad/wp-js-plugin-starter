@@ -1,0 +1,16 @@
+.top-text {
+	color: white;
+	font-family: impact, helvetica, sans-serif;
+	font-size: 50px;
+	position: absolute;
+	text-align: center;
+	text-shadow:
+		3px 3px 0 #000,
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+	text-transform: uppercase;
+	top: 0;
+	width: 100%;
+}
