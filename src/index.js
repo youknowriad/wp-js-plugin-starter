@@ -2,10 +2,12 @@ import "./style.scss";
 
 const { createElement, Fragment } = wp.element;
 const { registerBlockType } = wp.blocks;
-const { BlockControls, PlainText, MediaUpload } = wp.editor;
+const { BlockControls, PlainText, MediaUpload, MediaPlaceholder } = wp.editor;
 const { Toolbar, IconButton } = wp.components;
 
 const ALLOWED_MEDIA_TYPES = ["image"];
+
+
 
 registerBlockType("wp-js-plugin-starter/hello-world", {
   title: "Meme",
@@ -56,10 +58,26 @@ registerBlockType("wp-js-plugin-starter/hello-world", {
           </BlockControls>
         </Fragment>
         <div className="meme-div">
-          <img
-            className="meme-image"
-            src={attributes.imageUrl}
-          />
+          { attributes.imageUrl && (
+            <img
+              className="meme-image"
+              src={attributes.imageUrl}
+              />
+          ) }
+          { '' == attributes.imageUrl && (
+					<MediaPlaceholder
+						icon=''
+						className=""
+						labels={ {
+							title: '',
+							name: '',
+						} }
+						onSelect={ onSelectImage }
+						accept="image/*"
+						allowedTypes={ ALLOWED_MEDIA_TYPES }
+					/>
+          ) }
+
           <PlainText
             className="top-text"
             value={attributes.memeTextTop}
