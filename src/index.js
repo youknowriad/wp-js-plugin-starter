@@ -18,8 +18,7 @@ registerBlockType("wp-js-plugin-starter/hello-world", {
     },
     imageUrl: {
       type: "string",
-      default:
-        "http://127.0.0.1:8888/wp-content/plugins/wp-js-plugin-starter/kitty.jpg"
+      default: "",
     },
     id: {
       type: "number"

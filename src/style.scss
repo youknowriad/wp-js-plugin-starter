@@ -12,6 +12,11 @@
   left: 0;
   width: 100%;
   background: transparent;
+
+  &::placeholder {
+    color: white;
+    font-size: 24px;
+  }
 }
 
 .meme-div {
