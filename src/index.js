@@ -46,7 +46,7 @@ registerBlockType("wp-js-plugin-starter/hello-world", {
                 render={({ open }) => (
                   <IconButton
                     className="components-toolbar__control"
-                    value={id}
+                    value={attributes.id}
                     label={"Edit image"}
                     icon="edit"
                     onClick={open}
