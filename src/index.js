@@ -8,9 +8,9 @@ const { Toolbar, IconButton } = wp.components;
 const ALLOWED_MEDIA_TYPES = ["image"];
 
 registerBlockType("wp-js-plugin-starter/hello-world", {
-  title: "Hello World",
-  description: "Just another Hello World block",
-  icon: "admin-site",
+  title: "Meme",
+  description: "Pick an image and some text.",
+  icon: "smiley",
   category: "common",
   attributes: {
     memeTextTop: {
