@@ -36,6 +36,9 @@ registerBlockType("wp-js-plugin-starter/hello-world", {
       setAttributes({ imageUrl: media.url, id: media.id });
     };
 
+    const memeDivClass = 'meme-div' + 
+      ( '' == attributes.imageUrl ? ' no-image-selected' : '' );
+
     return (
       <Fragment>
         <Fragment>
@@ -57,7 +60,13 @@ registerBlockType("wp-js-plugin-starter/hello-world", {
             </Toolbar>
           </BlockControls>
         </Fragment>
-        <div className="meme-div">
+        <div className={ memeDivClass }>
+          <PlainText
+            className="top-text"
+            value={attributes.memeTextTop}
+            onChange={memeTextTop => setAttributes({ memeTextTop })}
+            placeholder={"Write something funny..."}
+          />
           { attributes.imageUrl && (
             <img
               className="meme-image"
@@ -77,13 +86,6 @@ registerBlockType("wp-js-plugin-starter/hello-world", {
 						allowedTypes={ ALLOWED_MEDIA_TYPES }
 					/>
           ) }
-
-          <PlainText
-            className="top-text"
-            value={attributes.memeTextTop}
-            onChange={memeTextTop => setAttributes({ memeTextTop })}
-            placeholder={"Write something funny..."}
-          />
         </div>
       </Fragment>
     );
