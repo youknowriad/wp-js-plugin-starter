@@ -56,9 +56,9 @@ registerBlockType("wp-js-plugin-starter/hello-world", {
             </Toolbar>
           </BlockControls>
         </Fragment>
-        <div style={{ width: "300px", height: "300px", position: "relative" }}>
+        <div className="meme-div">
           <img
-            style={{ width: "300px", height: "300px" }}
+            className="meme-image"
             src={attributes.imageUrl}
           />
           <PlainText
@@ -74,9 +74,9 @@ registerBlockType("wp-js-plugin-starter/hello-world", {
 
   save({ attributes }) {
     return (
-      <div style={{ width: "300px", height: "300px", position: "relative" }}>
+      <div className="meme-div">
         <img
-          style={{ width: "300px", height: "300px" }}
+          className="meme-image"
           src={attributes.imageUrl}
         />
         <div className="top-text">{attributes.memeTextTop}</div>
