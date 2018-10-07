@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "start": "parcel watch src/index.js",
-    "build": "parcel build src/index.js"
+    "build": "parcel build src/index.js",
+    "package": "./bin/build-plugin-zip.sh"
   },
   "keywords": [
     "wordpress",
