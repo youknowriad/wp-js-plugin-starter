@@ -28,6 +28,10 @@ function wp_js_plugin_starter_url( $path ) {
  * @since 1.0.0
  */
 function wp_js_plugin_starter_register_block() {
+	if ( ! function_exists( 'register_block_type' ) ) {
+		return;
+	}
+
 	wp_register_script(
 		'wp-js-plugin-starter',
 		wp_js_plugin_starter_url( 'dist/index.js' ),
