@@ -34,7 +34,7 @@ It's not really important to master how docker works at the moment, just know th
 docker-compose up -d
 ```
 
-Wait a few seconds and then you can now navigate into `[http://localhost:8888](http://localhost:8888)` in your favorite browser. You'll be prompted to install WordPress on your first access.
+Wait a few seconds and then you can now navigate into [`http://localhost:8888`](http://localhost:8888) in your favorite browser. You'll be prompted to install WordPress on your first access.
 
 **Note:** It's not mandatory to use this specific WordPress environment for the next step of the tutorials but it's handy because the plugin will be automatically put in the `wp-content/plugins` folder of the WordPress install.
 
