@@ -3,7 +3,7 @@
  * Plugin Name: WP JS Plugin Starter
  * Plugin URI: https://github.com/youknowriad/wp-js-plugin-starter
  * Description: Just another WordPress plugin starter
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Riad Benguella
  *
  * @package wp-js-plugin-starter
@@ -31,7 +31,9 @@ function wp_js_plugin_starter_register_block() {
 	wp_register_script(
 		'wp-js-plugin-starter',
 		wp_js_plugin_starter_url( 'dist/index.js' ),
-		array( 'wp-element' )
+		array( 'wp-element' ),
+		'1.0.1',
+		true
 	);
 
 	register_block_type( 'wp-js-plugin-starter/hello-world', array(
