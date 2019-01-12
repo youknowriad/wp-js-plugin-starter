@@ -96,7 +96,7 @@ For this starter, we'll prefer to use [Parcel](https://parceljs.org) Bundler, a 
 
 But first, we need to install these tools we're going to use. In the JavaScript community, we do so by using [npm](http://npmjs.com), a package dependency manager for JavaScript (if you're more familiar with `PHP`, it's the `composer` of `JavaScript`). (Npm is automatically installed with [NodeJS](https://nodejs.org/en/), so just grab the latest Node.JS binary and install it).
 
-Similarily to most package dependency managers, we need to provide some basic information in a config file called [`package.json`](https://github.com/youknowriad/wp-js-plugin-starter/blob/bbd655d2796ea0676ebd2f502664ce10e3c31817/package.json): name, current version, license, keywords... This file can be generated automatically by running `npm run init` and replying to some simple questions about your package.
+Similarily to most package dependency managers, we need to provide some basic information in a config file called [`package.json`](https://github.com/youknowriad/wp-js-plugin-starter/blob/bbd655d2796ea0676ebd2f502664ce10e3c31817/package.json): name, current version, license, keywords... This file can be generated automatically by running `npm init` and replying to some simple questions about your package.
 
 Once initialized, we can start defining and installing our dependencies (the packages we depend on). So we start by installing the Parcel bundler as a devDependency (a dependency useful when developing our current project but a dependency we don't ship in our production code). So we can just run `npm install parcel-bundler --save-dev`. Running this command updates the `package.json` file and adds the newly installed dependency to the `devDependencies` section of the file.
 
